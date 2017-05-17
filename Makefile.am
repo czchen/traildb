@@ -49,6 +49,8 @@ libtdbindex_la_SOURCES = \
   tdbcli/tdb_index.c \
   tdbcli/thread_util.c
 
+libtdbindex_la_CFLAGS = -Isrc/
+
 bin_PROGRAMS = util/traildb_bench tdbcli/tdb
 util_traildb_bench_SOURCES = util/traildb_bench.c
 util_traildb_bench_CFLAGS  = ${libtraildb_la_CFLAGS} -Isrc/
