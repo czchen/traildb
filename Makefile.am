@@ -1,4 +1,4 @@
-lib_LTLIBRARIES = libtraildb.la
+lib_LTLIBRARIES = libtraildb.la libtdbindex.la
 ACLOCAL_AMFLAGS = -I m4
 libtraildb_la_CFLAGS = -std=c99 \
                        -DJUDYERROR=judyerror_macro_missing_fix_this \
@@ -44,6 +44,11 @@ include_HEADERS = \
   src/tdb_types.h \
   src/tdb_limits.h
 
+libtdbindex_la_SOURCES = \
+  src/xxhash/xxhash.c \
+  tdbcli/tdb_index.c \
+  tdbcli/thread_util.c
+
 bin_PROGRAMS = util/traildb_bench tdbcli/tdb
 util_traildb_bench_SOURCES = util/traildb_bench.c
 util_traildb_bench_CFLAGS  = ${libtraildb_la_CFLAGS} -Isrc/
@@ -60,4 +65,4 @@ tdbcli_tdb_SOURCES = tdbcli/main.c \
                      tdbcli/op_make.c \
                      tdbcli/op_merge.c \
                      tdbcli/jsmn/jsmn.c
-tdbcli_tdb_LDADD = libtraildb.la
+tdbcli_tdb_LDADD = libtraildb.la libtdbindex.la
