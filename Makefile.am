@@ -59,7 +59,8 @@ tdbcli_tdb_CFLAGS = -Isrc/ \
                     -O3 \
                     -g \
                     -Wall
-tdbcli_tdb_SOURCES = tdbcli/main.c \
+tdbcli_tdb_SOURCES = tdbcli/filter.c \
+                     tdbcli/main.c \
                      tdbcli/op_dump.c \
                      tdbcli/op_index.c \
                      tdbcli/op_make.c \
